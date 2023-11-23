@@ -3,24 +3,24 @@
     "apis": {
       "custom": {
         "endpoint": {
-          "uri": "arn:aws:lambda:us-east-1:388806798322:function:b401a0f7-35a7-4480-b780-2d6cc16fa517:Release_0"
+          "uri": "arn:aws:lambda:us-east-1:100021192596:function:f808fb93-3b5e-4e93-b5b2-aa3238ee52d0:Release_0"
         },
         "interfaces": [],
         "locales": {},
         "regions": {
           "NA": {
             "endpoint": {
-              "uri": "arn:aws:lambda:us-east-1:388806798322:function:b401a0f7-35a7-4480-b780-2d6cc16fa517:Release_0"
+              "uri": "arn:aws:lambda:us-east-1:100021192596:function:f808fb93-3b5e-4e93-b5b2-aa3238ee52d0:Release_0"
             }
           },
           "EU": {
             "endpoint": {
-              "uri": "arn:aws:lambda:eu-west-1:388806798322:function:b401a0f7-35a7-4480-b780-2d6cc16fa517:Release_0"
+              "uri": "arn:aws:lambda:eu-west-1:100021192596:function:f808fb93-3b5e-4e93-b5b2-aa3238ee52d0:Release_0"
             }
           },
           "FE": {
             "endpoint": {
-              "uri": "arn:aws:lambda:us-west-2:388806798322:function:b401a0f7-35a7-4480-b780-2d6cc16fa517:Release_0"
+              "uri": "arn:aws:lambda:us-west-2:100021192596:function:f808fb93-3b5e-4e93-b5b2-aa3238ee52d0:Release_0"
             }
           }
         }
@@ -29,10 +29,30 @@
     "manifestVersion": "1.0",
     "publishingInformation": {
       "distributionCountries": [],
-      "isAvailableWorldwide": true,
+      "isAvailableWorldwide": false,
       "locales": {
         "pt-BR": {
-          "name": "ChatGPT"
+          "description": "Jarbas é um assistente pessoal.",
+          "examplePhrases": [
+            "Jarbas",
+            "oi",
+            "olá",
+            "ajuda"
+          ],
+          "keywords": [],
+          "name": "Jarbas",
+          "summary": "Jarbas é um assistente pessoal."
+        },
+        "en-us": {
+          "description": "Jarbas is a personal assistant.",
+          "examplePhrases": [
+            "Jarbas",
+            "hello",
+            "help"
+          ],
+          "keywords": [],
+          "name": "Jarbas",
+          "summary": "Jarbas is a personal assistant."
         }
       },
       "testingInstructions": "Sample Testing Instructions."

@@ -13,7 +13,8 @@ openai.api_key = "substitua-pela-sua-chave-da-openai"
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-messages = [{"role": "system", "content": "Você é uma assistente muito útil. Por favor, responda de forma clara e concisa em Português do Brasil."}]
+# messages = [{"role": "system", "content": "Você é uma assistente muito útil. Por favor, responda de forma clara e concisa em Português do Brasil."}]
+messages = [{"role": "system", "content": "You are my personal assistant. Please, provide concise answers, and I will let you know if I need examples or have more questions."}]
 
 class LaunchRequestHandler(AbstractRequestHandler):
     """Handler for Skill Launch."""
@@ -24,7 +25,8 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Bem vindo ao Chat 'Gepetê Quatro' da 'Open ei ai'! Qual a sua pergunta?"
+        # speak_output = "Bem vindo ao Chat 'Gepetê Quatro' da 'Open ei ai'! Qual a sua pergunta?"
+        speak_output = "Welcome, I'm Jarbas, what can I do for you?"
 
         return (
             handler_input.response_builder
@@ -47,7 +49,7 @@ class GptQueryIntentHandler(AbstractRequestHandler):
         return (
                 handler_input.response_builder
                     .speak(response)
-                    .ask("Alguma outra pergunta?")
+                    .ask("Do you need assistance in anything else?")
                     .response
             )
 
@@ -61,7 +63,8 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
         # type: (HandlerInput, Exception) -> Response
         logger.error(exception, exc_info=True)
 
-        speak_output = "Desculpe, não consegui obter uma resposta para esta pergunta. Tente perguntar de outra forma."
+        # speak_output = "Desculpe, não consegui obter uma resposta para esta pergunta. Tente perguntar de outra forma."
+        speak_output = "I'm sorry, I couldn't get a response for the question. Try once again."
 
         return (
             handler_input.response_builder
@@ -79,7 +82,8 @@ class CancelOrStopIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Saindo do modo Chat Gepetê."
+        # speak_output = "Saindo do modo Chat Gepetê."
+        speak_output = "Turning off AI mode."
 
         return (
             handler_input.response_builder
@@ -93,9 +97,9 @@ def generate_gpt_response(query):
             {"role": "user", "content": query},
         )
         response = openai.ChatCompletion.create(
-            model="gpt-4",
+            model="gpt-4-1106-preview",
             messages=messages,
-            max_tokens=1000,
+            max_tokens=5000,
             n=1,
             stop=None,
             temperature=0.5
@@ -104,7 +108,8 @@ def generate_gpt_response(query):
         messages.append({"role": "assistant", "content": reply})
         return reply
     except Exception as e:
-        return f"Erro ao gerar resposta: {str(e)}"
+        # return f"Erro ao gerar resposta: {str(e)}"
+        return f"Error when generating response: {str(e)}"
 
 sb = SkillBuilder()
 
